@@ -36,7 +36,8 @@ The project consists of two main components:
 - The main component of this project is a custom-built **blink detection and glasses recognition AI**, developed with data collected and labeled using **RoboFlow**. This ensures optimal training data quality.
   
 - **Training Process**:
-  - We trained the BLINK and GLASSES coverage models using **YOLO**, a state-of-the-art framework for object detection.
+  - We trained the GLASSES coverage models using **YOLO**, a state-of-the-art framework for object detection.
+  - For the BLINK detection we use the mediapipe-lib and the Eye-Aspect-Ratio (EAR)
   - Using **RoboFlow**, the data was annotated to properly classify **blinks** and **glasses**. These training datasets are essential to the performance of the demonstrator.
   - The trained models can be found in the `models/` directory, which can be used for inference in the project.
 
