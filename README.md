@@ -2,61 +2,86 @@
 
 ## Overview
 
-This project is designed to serve as a **demonstration tool** for two primary use-cases:
+This project demonstrates how **fatigue detection** can be simulated using blink tracking and how **AI bias against glasses-wearers** can be illustrated. The system detects fatigue based on blinking patterns and simulates the difficulty of detecting blinks for glasses-wearers by lowering the **Eye Aspect Ratio (EAR) threshold** for them.
 
-1. **Fatigue Detection Demonstrator**: Based on blink detection, this demonstrator identifies signs of **fatigue** by analyzing blink frequency, size, and eye closure patterns. This component can be used to detect when an individual may be too tired to perform tasks, such as operating a vehicle in **TrackMania**.
+### Key Aspects:
+1. **Fatigue Detection Simulation**
+   - Detects fatigue by analyzing blink frequency and eye closure patterns.
+   - Recognizes reduced blinking over time as an indicator of fatigue.
 
-2. **Unfairness Demonstrator**: This aspect demonstrates bias or disadvantage towards users who wear **glasses**. Glasses-wearers can be unfairly penalized in certain computer vision systems, with factors like **smaller eye size** or **dirty lenses** leading to less accurate detection results. Our system simulates this disadvantage in a game-like scenario.
+2. **Unfairness Simulation for Glasses-Wearers**
+   - Simulates how fatigue detection systems might perform worse for users with glasses.
+   - Adjusts EAR thresholds to make it harder to detect blinks when glasses are worn.
+
+## How It Works
+- **Blink detection** is based on the Eye Aspect Ratio (EAR), which measures the openness of the eyes.
+- **Fatigue is determined** if a user blinks too infrequently or closes their eyes for prolonged periods.
+- **Glasses-wearers face detection bias**, as their EAR values are harder to detect, simulating real-world AI challenges.
 
 ## Educational Purpose
-
-This project can be utilized as an **educational tool** for learning:
-- **Computer vision** concepts and **blink detection**.
-- Exploring potential **biases** in AI models, such as unfairness against glasses-wearers.
-- Showcasing how **real-time detection systems** can be integrated into external environments, such as video games (TrackMania).
+This project helps users understand:
+- **Computer vision** principles behind blink detection.
+- **Bias in AI models** affecting real-world applications.
+- The role of **real-time detection systems** in human behavior tracking (e.g., in gaming like **TrackMania**).
 
 ## Project Structure
 
-The project consists of two main components:
-1. **`main.py`** - This is the primary file that **integrates the demonstrator into TrackMania**. It receives the blink and glasses detection outputs and controls the car speed or behavior based on the detected conditions (e.g. reduced speed if the driver is fatigued or wearing glasses).
+### Core Components:
+1. **`main.py`** - The primary script running the simulation in a standalone Python file.
+2. **`demonstrator.ipynb`** - A Jupyter Notebook for interactive demonstration of fatigue and bias.
+3. **`trackmania.ipynb`** - A Jupyter Notebook integrating the system into **TrackMania**.
 
-2. **`demonstrator.ipynb`** - This **Jupyter Notebook** is where the core demonstrator is built and trained. It contains the logic, models, and explanations for blink detection, glasses recognition, and the related unfairness simulation.
+### Key Directories:
+- **`src/`** - Contains implementation files (`main.py`, `trackmania.ipynb`, etc.).
+- **`data/`** - Labeled datasets for training blink and glasses detection models.
+- **`models/`** - Pre-trained **YOLO** models for blink and glasses recognition.
 
-### Important Folders:
-- **`src/`** - Contains the core source files for the project including:
-  - `main.py`: Integrates the fatigue and unfairness demonstrators with **TrackMania**.
-  - `demonstrator.ipynb`: A Jupyter Notebook where the demonstrator logic is built and developed.
-  
-- **`data/`** - This directory contains the labeled datasets used for training the **blink detection** and **glasses recognition** models. The data was labeled using **RoboFlow**, a popular tool for image annotation. The datasets focus on capturing blink data and glasses-wearer specific features.
+## Running the Demonstrator
 
-- **`models/`** - Various models were trained using the **YOLO** (You Only Look Once) framework for blink and glasses detection. These models are stored as `.pt` files in this directory.
+### 1. Installation
+#### Clone the Repository:
+```bash
+git clone https://github.com/your-repo/fatigue-fairness-demonstrator.git
+cd fatigue-fairness-demonstrator
+```
+#### Install Dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-## Blink and Glasses Recognition
+### 2. Running the Main Simulation
+To execute the **fatigue and bias detection** system:
+```bash
+python src/main.py
+```
 
-- The main component of this project is a custom-built **blink detection and glasses recognition AI**, developed with data collected and labeled using **RoboFlow**. This ensures optimal training data quality.
-  
-- **Training Process**:
-  - We trained the GLASSES coverage models using **YOLO**, a state-of-the-art framework for object detection.
-  - For the BLINK detection we use the mediapipe-lib and the Eye-Aspect-Ratio (EAR)
-  - Using **RoboFlow**, the data was annotated to properly classify **blinks** and **glasses**. These training datasets are essential to the performance of the demonstrator.
-  - The trained models can be found in the `models/` directory, which can be used for inference in the project.
+### 3. Running in TrackMania
+#### Setup TrackMania:
+1. Open **Ubisoft Connect** (not the Game Launcher!).
+2. Log in with your credentials.
+3. Navigate to **Library** and start **TrackMania**.
+4. Select **Create** → **Track Editor**.
+5. Choose **Edit a Track**.
+6. Navigate to **My Local Tracks** → **My Maps**.
+7. Click **Test**.
+8. Press the **green (or yellow) flag** to start the track.
 
-## How to Run
+#### Start the Demonstrator:
+1. Open **Visual Studio Code** as Administrator.
+   - Right-click **Visual Studio Code** in the Windows menu.
+   - Select **Run as Administrator**.
+2. Open the project folder: **File** → **Open Folder** → **unfairness_demonstrator**.
+3. Open **`trackmania.ipynb`** in Jupyter Notebook. Or execude the **`main.py`** File
+4. Run the first two code cells to start the simulation.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-repo/fatigue-fairness-demonstrator.git
-   cd fatigue-fairness-demonstrator
-   ```
+## Scientific Basis
+This project is based on research in fatigue detection and AI bias:
+- [Dong et al. (2011)](https://web.archive.org/web/20170808091400id_/http:/cvrr.ucsd.edu/ece285/Spring2014/papers/Dong_TITS2011.pdf)
+- [Blinks and saccades as indicators of fatigue](https://www.researchgate.net/publication/5287545_Blinks_and_saccades_as_indicators_of_fatigue_in_sleepiness_warnings_Looking_tired/link/02e7e536f97a6a8387000000/download?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19)
+- [Fatigue Detection in Electronics](https://www.mdpi.com/2079-9292/11/19/3183#B17-electronics-11-03183)
+- [Fatigue Monitoring Studies](https://peerj.com/articles/cs-943/)
+- [Blink Research](https://www.blinkingmatters.com/research)
+- [Fatigue and Eye Tracking](https://www.sciencedirect.com/science/article/pii/S1077314216300054#sec0009)
+- [Fatigue Detection via Blinks](https://www.mdpi.com/2076-3417/11/18/8441)
 
-2. **Install the dependencies**:
-   Install the required Python packages using the `requirements.txt` file:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the Main Demonstrator**:
-   To integrate the blink and glasses detection in **TrackMania**, run the following:
-   ```bash
-   python src/main.py
-   ```
+---
