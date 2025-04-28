@@ -85,3 +85,26 @@ This project is based on research in drowsiness detection and AI bias:
 - [drowsiness Detection via Blinks](https://www.mdpi.com/2076-3417/11/18/8441)
 
 ---
+
+# Copyright / License
+This work is licensed under a Creative Commons Attribution 4.0 International License (CC BY-NC-SA 4.0).
+
+![](CC-BY-NC-SA.jpg)
+ 
+As such:
+
+### You are free to:
+* Share — copy and redistribute the material in any medium or format
+* Adapt — remix, transform, and build upon the material
+* The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+### Under the following terms:
+* Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+* NonCommercial — You may not use the material for commercial purposes .
+* ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+# Contact / About us
+* You can find all of our repositories [here](https://github.com/orgs/AI-for-Business/repositories).
+* You can find the homepage of the project ABBA: **A**I for **B**usiness | **B**usiness for **A**I
+[here](https://abba-project.de/).
+* You can contact the authors by sending us an [email](mailto:abba-services@fim-rc.de).
